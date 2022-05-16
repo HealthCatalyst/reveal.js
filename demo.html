@@ -134,17 +134,29 @@
           <h2 data-id="code-title">Pretty Code</h2>
           <pre
             data-id="code-animation"
-          ><code class="hljs" data-trim data-line-numbers>
-						import React, { useState } from 'react';
+          ><code class="hljs typescript" data-trim data-line-numbers>
+            import { Component, OnInit } from '@angular/core';
+            import { DataService, Data } from './data.service';
 
-						function Example() {
-						  const [count, setCount] = useState(0);
+            @Component({
+              selector: 'app-demo',
+              templateUrl: 'demo.component.html'
+            })
+            export class DemoComponent implements OnInit {
+              data?: Data[];
+              selectedData?: Data;
 
-						  return (
-						    ...
-						  );
-						}
-					</code></pre>
+              constructor(private dataService: DataService) {}
+
+              async ngOnInit() {
+                const data = await this.dataService.load();
+              }
+
+              selectData(data: Data) {
+                this.selectedData = data;
+              }
+            }
+          </code></pre>
           <p>
             Code syntax highlighting courtesy of
             <a href="https://highlightjs.org/usage/">highlight.js</a>.
@@ -155,71 +167,59 @@
           <h2 data-id="code-title">With animations</h2>
           <pre
             data-id="code-animation"
-          ><code class="hljs" data-trim data-line-numbers="|4,8-11|17|22-24"><script type="text/template">
-						import React, { useState } from 'react';
+          ><code class="hljs" data-trim data-line-numbers="|8,14-16|9,15|10,19"><script type="text/template">
+            import { Component, OnInit } from '@angular/core';
+            import { DataService, Data } from './data.service';
 
-						function Example() {
-						  const [count, setCount] = useState(0);
+            @Component({
+              selector: 'app-demo',
+              templateUrl: 'demo.component.html'
+            })
+            export class DemoComponent implements OnInit {
+              data?: Data[];
+              selectedData?: Data;
 
-						  return (
-						    <div>
-						      <p>You clicked {count} times</p>
-						      <button onClick={() => setCount(count + 1)}>
-						        Click me
-						      </button>
-						    </div>
-						  );
-						}
+              constructor(private dataService: DataService) {}
 
-						function SecondExample() {
-						  const [count, setCount] = useState(0);
+              async ngOnInit() {
+                this.data = await this.dataService.load();
+              }
 
-						  return (
-						    <div>
-						      <p>You clicked {count} times</p>
-						      <button onClick={() => setCount(count + 1)}>
-						        Click me
-						      </button>
-						    </div>
-						  );
-						}
-					</script></code></pre>
+              selectData(data: Data) {
+                this.selectedData = data;
+              }
+            }
+          </script></code></pre>
         </section>
-        
-				<section data-auto-animate>
+
+        <section data-auto-animate>
           <h2 data-id="code-title">or the Monaco Editor!</h2>
-					<em style="font-size: large">try editing the code below</em>
+          <em style="font-size: large">try editing the code below</em>
           <pre
             data-id="code-animation"
-          ><code class="monaco" language="javascript"><script type="text/template">
-import React, { useState } from 'react';
+          ><code class="monaco" language="typescript"><script type="text/template">
+import { Component, OnInit } from '@angular/core';
+import { DataService, Data } from './data.service';
 
-function Example() {
-	const [count, setCount] = useState(0);
+@Component({
+  selector: 'app-demo',
+  templateUrl: 'demo.component.html'
+})
+export class DemoComponent implements OnInit {
+  data?: Data[];
+  selectedData?: Data;
 
-	return (
-		<div>
-			<p>You clicked {count} times</p>
-			<button onClick={() => setCount(count + 1)}>
-				Click me
-			</button>
-		</div>
-	);
+  constructor(private dataService: DataService) {}
+
+  async ngOnInit() {
+    this.data = await this.dataService.load();
+  }
+
+  selectData(data: Data) {
+    this.selectedData = data;
+  }
 }
-
-function SecondExample() {
-	const [count, setCount] = useState(0);
-
-	return (
-		<div>
-			<p>You clicked {count} times</p>
-			<button onClick={() => setCount(count + 1)}>
-				Click me
-			</button>
-		</div>
-	);
-}
-</script></code></pre>
+          </script></code></pre>
         </section>
 
         <section>
@@ -536,7 +536,7 @@ function SecondExample() {
           >
             <h2>Gradient Backgrounds</h2>
             <pre><code class="hljs html wrap">&lt;section data-background-gradient=
-							"linear-gradient(to bottom, #f0f3f6, #4f565c)"&gt;</code></pre>
+              "linear-gradient(to bottom, #f0f3f6, #4f565c)"&gt;</code></pre>
           </section>
           <section
             data-background="https://cashmere.healthcatalyst.net/assets/home/HealthcareDesign.png"
@@ -758,9 +758,9 @@ function SecondExample() {
           </p>
           <pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
 Reveal.on( 'customevent', function() {
-	console.log( '"customevent" has fired' );
+  console.log( '"customevent" has fired' );
 } );
-					</code></pre>
+          </code></pre>
         </section>
 
         <section>
