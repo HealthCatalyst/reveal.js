@@ -34,7 +34,7 @@ const Plugin = {
 		config.highlightOnLoad = typeof config.highlightOnLoad === 'boolean' ? config.highlightOnLoad : true;
 		config.escapeHTML = typeof config.escapeHTML === 'boolean' ? config.escapeHTML : true;
 
-		Array.from( reveal.getRevealElement().querySelectorAll( 'pre code' ) ).forEach( block => {
+		Array.from( reveal.getRevealElement().querySelectorAll( 'pre code.hljs' ) ).forEach( block => {
 
 			block.parentNode.classList.add('code-wrapper');
 
@@ -71,7 +71,7 @@ const Plugin = {
 
 		// Run initial highlighting for all code
 		if( config.highlightOnLoad ) {
-			Array.from( reveal.getRevealElement().querySelectorAll( 'pre code' ) ).forEach( block => {
+			Array.from( reveal.getRevealElement().querySelectorAll( 'pre code.hljs' ) ).forEach( block => {
 				Plugin.highlightBlock( block );
 			} );
 		}
@@ -79,7 +79,7 @@ const Plugin = {
 		// If we're printing to PDF, scroll the code highlights of
 		// all blocks in the deck into view at once
 		reveal.on( 'pdf-ready', function() {
-			[].slice.call( reveal.getRevealElement().querySelectorAll( 'pre code[data-line-numbers].current-fragment' ) ).forEach( function( block ) {
+			[].slice.call( reveal.getRevealElement().querySelectorAll( 'pre code.hljs[data-line-numbers].current-fragment' ) ).forEach( function( block ) {
 				Plugin.scrollHighlightedLineIntoView( block, {}, true );
 			} );
 		} );

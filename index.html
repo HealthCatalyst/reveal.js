@@ -24,26 +24,6 @@
           Slide 1
         </section>
         <section>Slide 2</section>
-        <section>
-          <h3>Slide 3</h3>
-          <pre><code class="monaco">helloWorld();</code></pre>
-        </section>
-        <section>
-          <h3>Slide 4</h3>
-          <pre><code class="monaco">
-describe('helloWorld', () => {
-  it('should work');
-});
-          </code></pre>
-        </section>
-        <section>
-          <h3>Slide 5</h3>
-          <pre><code class="monaco" language="yaml" style="min-height: 350px">
-test:
-  - hello
-  - world
-          </code></pre>
-        </section>
       </div>
     </div>
 
@@ -61,6 +41,7 @@ test:
     <script src="dist/reveal.js"></script>
     <script src="plugin/notes/notes.js"></script>
     <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
     <script type="module">
       import RevealMonaco from "./plugin/monaco/plugin.js";
       // More info about initialization & config:
@@ -69,13 +50,12 @@ test:
       Reveal.initialize({
         hash: true,
 
-        monaco: { debug: true },
-
         // Learn about plugins: https://revealjs.com/plugins/
         plugins: [
           RevealMarkdown,
           RevealNotes,
           RevealMonaco,
+          RevealHighlight
         ],
       });
     </script>
