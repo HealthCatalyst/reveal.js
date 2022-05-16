@@ -3267,6 +3267,13 @@ section.has-dark-background, section.has-dark-background span, section.has-dark-
   border-left: none;
 }
 
+.reveal pre code.monaco {
+  min-height: 350px;
+  padding: 0;
+  padding-top: 3px;
+  background-color: white;
+}
+
 .footer {
   height: 40px;
   background-color: #384655;
