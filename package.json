@@ -96,5 +96,10 @@
       "no-eq-null": 2,
       "no-unused-expressions": 0
     }
+  },
+  "dependencies": {
+    "@healthcatalyst/cashmere": "^11.2.0",
+    "font-awesome": "^4.7.0",
+    "notosans-fontface": "^1.2.2"
   }
 }
